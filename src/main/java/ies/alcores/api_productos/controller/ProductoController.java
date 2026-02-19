@@ -5,6 +5,7 @@ import ies.alcores.api_productos.service.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,5 +21,10 @@ public class ProductoController {
     @GetMapping("")
     public ResponseEntity<List<Producto>> findAll(){
         return ResponseEntity.ok(this.productoService.findAll());
+    }
+
+    @GetMapping("categoria/{nombreCat}")
+    public ResponseEntity<List<Producto>> findByCategoria(@PathVariable String nombreCat){
+        return ResponseEntity.ok(this.productoService.findByCategoria(nombreCat));
     }
 }
