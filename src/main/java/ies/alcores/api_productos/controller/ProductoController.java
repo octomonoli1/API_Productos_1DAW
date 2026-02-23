@@ -29,4 +29,5 @@ public class ProductoController {
     public ResponseEntity<List<Producto>> findByCategoria(@PathVariable String nombreCat){
         return ResponseEntity.ok(this.productoService.findByCategoria(nombreCat));
     }
+
 }
